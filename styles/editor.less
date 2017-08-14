@@ -1,5 +1,9 @@
 @import "colors";
 
+body {
+    -webkit-font-smoothing: antialiased !important;
+}
+
 atom-text-editor {
   background: @background;
   color: @text;
@@ -20,6 +24,7 @@ atom-text-editor {
 
   .indent-guide {
     color: @indent-guide;
+    // background-color: fadeout(lighten(@magenta, 0%), 0%);
   }
 
   .invisible-character {
@@ -50,7 +55,8 @@ atom-text-editor {
     border-right: 1px solid @wrap-guide;
 
     .gutter {
-      background-color: #272c36;
+    //   background-color: #272c36;
+      background-color: @dark-gray;
 
       .line-number {
         color: @gutter-text;

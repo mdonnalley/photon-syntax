@@ -1,0 +1,84 @@
+@import "../colors";
+
+@meta: @silver;
+
+.global-keywords-mixin-clj {
+    // color: @light-yellow;
+    color: @violet;
+}
+
+.fn-name-mixin-clj {
+    color: @light-yellow;
+    // color: black;
+    // background-color: @faded-silver;
+    // border: 1px solid @faded-silver;
+    // border-radius: 3px;
+}
+
+.fn-name-reset-mixin-clj {
+    color: inherit;
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+}
+
+.syntax--source.syntax--clojure {
+    .syntax--invalid {
+        background: none !important;
+        color: none !important;
+    }
+
+    .syntax--meta.syntax--definition.syntax--global {
+        // defn, def, defmethod, etc ...
+        .syntax--keyword.syntax--control {
+            .global-keywords-mixin-clj
+        }
+
+        // function names
+        .syntax--keyword.syntax--control ~ .syntax--entity.syntax--global {
+            .fn-name-mixin-clj;
+        }
+
+        // reset non function names that are captured by the css above
+        .syntax--keyword.syntax--control
+        + .syntax--entity.syntax--global
+        ~ .syntax--entity.syntax--global {
+            .fn-name-reset-mixin-clj;
+        }
+
+        // function names
+        .syntax--meta.syntax--metadata.syntax--simple
+        ~ .syntax--entity.syntax--global {
+            .fn-name-mixin-clj;
+        }
+
+        // reset non function names that are captured by the css above
+        .syntax--meta.syntax--metadata.syntax--simple
+        + .syntax--entity.syntax--global
+        ~ .syntax--entity.syntax--global {
+            .fn-name-reset-mixin-clj;
+        }
+
+    }
+
+    // function definition meta
+    // e.g. arguments, schema, etc...
+    // .syntax--meta.syntax--expression {
+    //     .syntax--meta.syntax--definition.syntax--global {
+    //         > .syntax--meta.syntax--vector {
+    //             color: @meta;
+    //             .syntax--clojure {
+    //                 color: @meta;
+    //             }
+    //         }
+    //         > .syntax--meta.syntax--vector ~ .syntax--meta.syntax--vector {
+    //             color: inherit;
+    //             .syntax--clojure {
+    //                 color: inherit;
+    //             }
+    //         }
+    //     }
+    // }
+
+
+}

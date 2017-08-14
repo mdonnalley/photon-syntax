@@ -2,10 +2,12 @@
 
 @white: #cfcddd;
 @silver: #909eae;
+@faded-silver: fadeout(@silver, 20%);
 @light-gray: #5f696f;
 @gray: #343d46;
 @dark-gray: #2b303b;
 @yellow: #daa520;
+@light-yellow: lighten(@yellow, 20%);
 @orange: #ff6347;
 @red: #b22222;
 @magenta: #d81e78;
@@ -20,7 +22,7 @@
 
 @text: @white;
 @cursor: darken(@blue, 15%);
-@selection: fadeout(lighten(@background, 20%), 50%);
+@selection: fadeout(lighten(@dark-gray, 20%), 50%);
 @background: @dark-gray;
 
 @renamed: @blue;
